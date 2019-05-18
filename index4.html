@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Тест</title>
+	<script type="text/javascript">
+var a=document, rez=0, time='120', ball=2, vsego=5, count=0;
+function number1(){
+var b=document.getElementById('number1');
+b.innerHTML--;	  
+if(b.innerHTML==0){
+number3();
+setTimeout(function(){},1000);}
+else{setTimeout(number1,1000);}
+}
+function number2(){
+a.getElementById("number1").innerHTML=time;   
+setTimeout(number1,1000);
+a.getElementById("blok").style.display='block';
+a.getElementById("ht").style.display='none';
+}
+function number3(){
+var с=0;
+for(с=0; с<a.getElementsByName("v01").length; с++){ 
+if(a.getElementsByName("v01")[с].checked) { 
+if(с==1){rez+=2; count++;}
+}
+}
+for(с=0; с<a.getElementsByName("v02").length; с++){
+if(a.getElementsByName("v02")[с].checked) {
+if(с==0){rez+=2; count++;}
+if(с==2){rez+=2; count++;}
+}
+}
+for(с=0; с<a.getElementById("v03").options.length; с++){
+if(a.getElementById("v03").options[с].selected){
+if(с==2){rez+=2; count++;}
+}  
+} 
+if(a.getElementsByName("v04")[0].value.search("Французький бульдог")!=-1){rez+=2; count++;}
+if(a.getElementsByName("v05")[0].value.search("Сенбернар")!=-1){rez+=2;count++;}
+alert('Вы набрали '+((rez/ball)/vsego)*100+' %\nВи цілком правильно відповіли на '+count+ ' питань із '+vsego+'.');         
+a.getElementById("blok").style.display='none';
+a.getElementById("ht").style.display='block';
+location.reload(true);
+rez=0;
+count=0;
+}
+</script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style1.css">
+	<style type="text/css">
+#blok{
+display: none;
+}
+</style> 
+</head>
+<body>
+<header>
+<div class="title01"><h1><center><b> Собаки - найкращі друзі людини
+<br>
+<h2>Все про породи, догляд та лікування</h2></b></center></h2></div>
+<br>
+<div class="menu"><center>
+	<ul class="list">
+<li class="list-item"><a href="index.html"><b>ГОЛОВНА СТОРІНКА</b></a></li>
+<li class="list-item"><a href="index4.html"><b>ТЕСТ</b></a></li>
+<li class="list-item"><a href="index2.html"><b>ПОРОДИ</b></a></li>
+<li class="list-item"><a href="index3.html"><b>ДОГЛЯД ТА ЛІКУВАННЯ</b></a></li>
+</ul></center>
+</div>
+</header>
+<article>
+<div id="history">
+<hr>
+<h2>
+<center><b>Вікторинка</b></center>
+</h2>
+<hr>
+<div>
+<center><input type="button" class="knopka" name="ht" value="Розпочати вікторинку" onclick="number2()" id="ht"></center>
+<div id="blok">
+<p>Залишилося часу:</p>
+<p id="number1"></p>
+<form>
+<div>
+<p>Cкільки станом на 2015 рік проживало собак на планеті?</p>
+<input type="radio" name="v01" value="1">418млн<br>
+<input type="radio" name="v01" value="2">525млн<br>
+<input type="radio" name="v01" value="3">625млнbr>
+</div>
+<div>
+<p>Якого собаку використовують як поводиря?</p>
+<input type="radio" name="v02" value="1">Лабрадора<br>
+<input type="radio" name="v02" value="2">Сенбернара<br>
+<input type="radio" name="v02" value="3">Французький бульдог<br>
+</div>
+<div>
+<p>Кого нагадують померанські шпіци?</p>
+<select name="v03" id="v03">
+<option value="1">Рибу</option>
+<option value="2">Лева</option>
+<option value="3">Ведмедя</option>
+<option value="4">Тигра</option>
+</select>
+</div>
+<div>
+<p>Якого собаку потрібно купати раз у 30 днів?</p>
+<input type="text" name="v04">
+</div>
+<div>
+<p class="quest">Який собака рятує людей у горах?</p>
+<input type="text" name="v05">
+</div>
+<br>
+<input type="button" class="knopka" value="Надіслати відповіді" onclick="number3()">
+<input type="reset" class="knopka" value="Зтерти ваші варіанти" name="rez">
+</form>
+</div>
+</div>
+</article>
+<div>
+<center> 
+<a href="#" style="color: #000000"><b>Наверх</b></a> 
+</center>
+</body>
+</html>
